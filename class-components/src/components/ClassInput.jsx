@@ -1,5 +1,12 @@
 import { Component } from 'react';
 
+
+class Count extends Component {
+  render() {
+    return <p>Total Count: {this.props.todoCount}</p>
+  }
+}
+
 class ClassInput extends Component {
   constructor(props) {
     super(props);
@@ -7,6 +14,7 @@ class ClassInput extends Component {
     this.state = {
       todos: ['Just some demo tasks', 'As an example'],
       inputVal: '',
+      Count: 2,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,6 +58,7 @@ class ClassInput extends Component {
           <button type="submit">Submit</button>
         </form>
         <h4>All the tasks!</h4>
+        <Count todoCount={this.state.todos.length} />
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
